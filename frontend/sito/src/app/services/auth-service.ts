@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, User, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, User } from '@angular/fire/auth';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -12,12 +12,10 @@ export class AuthService {
   //Observable che altri componenti possono "ascoltare".
   currentUser$ = this.currentUserSubject.asObservable();
   constructor(private auth: Auth) {
-  //onAuthStateChanged ascolta i cambiamenti di login/logout.
-  //viene chiamato automaticamente quando un utente fa login, logout
-  //o quando la pagina viene ricaricata e Firebase ripristina la sessione.
+  
   onAuthStateChanged(this.auth, (user) => {
-      this.currentUserSubject.next(user);
-    });
+    this.currentUserSubject.next(user);
+  });
   }
   //registrazione di un nuovo utente con email e password.
   register(email: string, password: string) {
@@ -36,4 +34,3 @@ export class AuthService {
     return this.auth.currentUser;
   }
 }
-

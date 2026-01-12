@@ -5,10 +5,10 @@ import { Register } from './auth/register/register';
 import { Home } from './pages/home/home';
 
 export const routes: Routes = [
-//sintassi di authGuard
-{ path: 'home', component: Home,
-canActivate: [authGuard] },
-{ path: 'login', component: Login },
-{ path: 'register', component: Register },
-{ path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: 'home', component: Home,
+    canActivate: [authGuard] },
+
+    { path: 'login', component: Login },
+    { path: 'register', component: Register },
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
 ];
