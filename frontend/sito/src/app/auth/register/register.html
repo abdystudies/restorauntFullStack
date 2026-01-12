@@ -1,0 +1,17 @@
+<h2>Registrazione</h2>
+
+<div>
+  <label>Email:</label>
+  <input type="email" [(ngModel)]="email">
+</div>
+
+<div>
+  <label>Password:</label>
+  <input type="password" [(ngModel)]="password">
+</div>
+
+<button (click)="register()">Registrati</button>
+
+<p style="color:red" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+<p>Hai già un account? <a routerLink="/login">Accedi</a></p>

@@ -1,0 +1,13 @@
+<h2>Login</h2>
+
+<label>Email:</label>
+<input [(ngModel)]="email" type="email" />
+
+<label>Password:</label>
+<input [(ngModel)]="password" type="password" />
+
+<button (click)="login()">Accedi</button>
+
+<p style="color: red" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+<p>Non hai un account? <a routerLink="/register">Registrati</a></p>
