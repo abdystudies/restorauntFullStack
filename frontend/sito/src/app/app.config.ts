@@ -9,14 +9,14 @@ import { environment } from './environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideRouter(routes),
-
-    //inizializza firebase con la config in environment
+    //inizializza firebase con la config in environment PRIMA di tutto
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    //ci rende disponibile l'auth di firebase
+    //ci rende disponibile l'auth di firebase con l'app appena inizializzato
     provideAuth(() => getAuth()),
     //ci rende disponibile firestore il db che vedremo
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    
+    provideBrowserGlobalErrorListeners(),
+    provideRouter(routes)
   ]
 };

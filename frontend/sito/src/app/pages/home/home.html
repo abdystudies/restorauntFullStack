@@ -1,5 +1,98 @@
-<h2>Home</h2>
+<div class="home-container">
+  <!-- Header Welcome -->
+  <div class="header-box">
+    <div class="header-content">
+      <h1>🏠 Benvenuto</h1>
+      <p class="welcome-text" *ngIf="email">
+        Ciao <strong>{{ email }}</strong>! Benvenuto nella tua dashboard
+      </p>
+      <p class="welcome-text" *ngIf="!email">
+        Benvenuto nella tua dashboard personale
+      </p>
+    </div>
+  </div>
 
-<p *ngIf="email">
-  Ciao, {{ email }}!
-</p>
+  <!-- Main Content Grid -->
+  <div class="content-grid">
+    <!-- Card 1: Profilo -->
+    <div class="content-box">
+      <div class="box-header">
+        <h3>👤 Profilo Utente</h3>
+      </div>
+      <div class="box-body">
+        <div class="info-item">
+          <label>Email registrata:</label>
+          <p class="info-value" *ngIf="email">{{ email }}</p>
+          <p class="info-value" *ngIf="!email">Non autenticato</p>
+        </div>
+        <div class="info-item">
+          <label>Stato:</label>
+          <p class="info-value status-active">✓ Attivo</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Statistiche -->
+    <div class="content-box">
+      <div class="box-header">
+        <h3>📊 Statistiche</h3>
+      </div>
+      <div class="box-body">
+        <div class="stat-item">
+          <span class="stat-label">Accessi:</span>
+          <span class="stat-value">1</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Ultimo accesso:</span>
+          <span class="stat-value">Oggi</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Azioni Rapide -->
+    <div class="content-box">
+      <div class="box-header">
+        <h3>⚙️ Azioni Rapide</h3>
+      </div>
+      <div class="box-body">
+        <button class="action-btn primary">
+          <span>✏️</span> Modifica Profilo
+        </button>
+        <button class="action-btn secondary">
+          <span>🔐</span> Cambia Password
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="features-section">
+    <div class="section-header">
+      <h2>🎯 Funzionalità Disponibili</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔐</div>
+        <h4>Sicurezza</h4>
+        <p>Autenticazione sicura con Firebase</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h4>Responsive</h4>
+        <p>Funziona su tutti i dispositivi</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h4>Veloce</h4>
+        <p>Performance ottimizzate</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logout Section -->
+  <div class="logout-section">
+    <button class="logout-btn">
+      <span>🚪</span> Esci dal tuo account
+    </button>
+  </div>
+</div>
