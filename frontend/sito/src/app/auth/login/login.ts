@@ -49,6 +49,9 @@ export class Login {
         this.errorMessage = 'Password errata';
       } else if (err.code === 'auth/invalid-email') {
         this.errorMessage = 'Email non valida';
+      } else if (err.code === 'auth/configuration-not-found') {
+        // User-friendly message when Email/Password auth is not enabled in Firebase
+        this.errorMessage = 'Configurazione autenticazione non trovata. Abilita il metodo Email/Password nella console Firebase.';
       } else {
         this.errorMessage = `Errore: ${err.message || 'Errore nel login. Riprova.'}`;
       }
