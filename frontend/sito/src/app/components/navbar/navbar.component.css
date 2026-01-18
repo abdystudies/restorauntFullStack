@@ -1,0 +1,295 @@
+.navbar {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo/Brand */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.3em;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+.logo-icon {
+  font-size: 1.5em;
+}
+
+.logo-text {
+  display: none;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Navigation Menu */
+.navbar-menu {
+  display: flex;
+  gap: 0;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0;
+}
+
+.nav-link {
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.95em;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+/* Right Section */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Cart Icon */
+.cart-icon {
+  position: relative;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cart-icon:hover {
+  transform: scale(1.1);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #f39c12;
+  color: white;
+  font-size: 0.7em;
+  padding: 3px 6px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+/* User Menu */
+.user-menu {
+  position: relative;
+}
+
+.user-btn {
+  padding: 8px 15px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.9em;
+}
+
+.user-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 200px;
+  margin-top: 10px;
+  overflow: hidden;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-link {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  text-align: left;
+  color: #2c3e50;
+  cursor: pointer;
+  font-size: 0.95em;
+  transition: all 0.2s ease;
+}
+
+.dropdown-link:hover {
+  background: #f5f7fa;
+}
+
+.dropdown-link.logout {
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+.dropdown-link.logout:hover {
+  background: #fadbd8;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: #ecf0f1;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .logo-text {
+    display: none;
+  }
+
+  .navbar-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .navbar-menu.active {
+    max-height: 300px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .dropdown-menu {
+    position: static;
+    background: rgba(0, 0, 0, 0.1);
+    box-shadow: none;
+    margin-top: 0;
+    border-radius: 0;
+  }
+
+  .dropdown-link {
+    color: white;
+    padding: 12px 30px;
+  }
+
+  .dropdown-link:hover {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .dropdown-divider {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .user-btn {
+    font-size: 0.85em;
+    padding: 6px 12px;
+  }
+
+  .cart-icon {
+    font-size: 1.3em;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 15px;
+  }
+
+  .logo-text {
+    display: inline;
+    font-size: 0.8em;
+  }
+
+  .nav-link {
+    font-size: 0.9em;
+  }
+
+  .user-btn {
+    font-size: 0.8em;
+    padding: 5px 10px;
+  }
+
+  .navbar-right {
+    gap: 10px;
+  }
+}

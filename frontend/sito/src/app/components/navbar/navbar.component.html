@@ -1,0 +1,59 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <!-- Logo/Brand -->
+    <div class="navbar-brand" (click)="navigateTo('/home')">
+      <span class="logo-icon">🍕</span>
+      <span class="logo-text">RestaurantApp</span>
+    </div>
+
+    <!-- Hamburger Menu -->
+    <button class="hamburger" [class.active]="isMenuOpen" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Main Navigation -->
+    <div class="navbar-menu" [class.active]="isMenuOpen">
+      <div class="nav-links">
+        <button class="nav-link" (click)="navigateTo('/home')">
+          🏠 Home
+        </button>
+        <button class="nav-link" (click)="navigateTo('/order')">
+          🍽️ Ordina
+        </button>
+        <button class="nav-link" (click)="navigateTo('/order-history')">
+          📋 I Miei Ordini
+        </button>
+      </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="navbar-right">
+      <!-- Cart Icon -->
+      <button class="cart-icon" (click)="navigateTo('/order')" *ngIf="getCartItemCount() > 0">
+        🛒
+        <span class="cart-badge">{{ getCartItemCount() }}</span>
+      </button>
+
+      <!-- User Menu -->
+      <div class="user-menu">
+        <button class="user-btn" (click)="toggleUserMenu()">
+          👤 {{ userEmail || 'Utente' }}
+        </button>
+        <div class="dropdown-menu" *ngIf="isUserMenuOpen">
+          <button class="dropdown-link" (click)="navigateTo('/home')">
+            Profilo
+          </button>
+          <button class="dropdown-link" (click)="navigateTo('/order-history')">
+            Ordini
+          </button>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-link logout" (click)="logout()">
+            Esci
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

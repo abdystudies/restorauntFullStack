@@ -2,19 +2,45 @@
   <!-- Header Welcome -->
   <div class="header-box">
     <div class="header-content">
-      <h1>🏠 Benvenuto</h1>
+      <h1>🍕 Benvenuto nel Tuo Ristorante</h1>
       <p class="welcome-text" *ngIf="email">
-        Ciao <strong>{{ email }}</strong>! Benvenuto nella tua dashboard
+        Ciao <strong>{{ email }}</strong>! Ordina i tuoi piatti preferiti
       </p>
       <p class="welcome-text" *ngIf="!email">
-        Benvenuto nella tua dashboard personale
+        Benvenuto nel nostro ristorante
       </p>
     </div>
   </div>
 
   <!-- Main Content Grid -->
   <div class="content-grid">
-    <!-- Card 1: Profilo -->
+    <!-- Card 1: Ordina Ora -->
+    <div class="content-box action-card">
+      <div class="box-header">
+        <h3>🛍️ Ordina Ora</h3>
+      </div>
+      <div class="box-body">
+        <p>Sfoglia il nostro delizioso menu e ordina i tuoi piatti preferiti</p>
+        <button class="action-btn primary" (click)="navigateTo('/order')">
+          <span>🍕</span> Vai al Menu
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 2: I Tuoi Ordini -->
+    <div class="content-box action-card">
+      <div class="box-header">
+        <h3>📋 I Tuoi Ordini</h3>
+      </div>
+      <div class="box-body">
+        <p>Visualizza la cronologia dei tuoi ordini e traccia le consegne</p>
+        <button class="action-btn primary" (click)="navigateTo('/order-history')">
+          <span>📦</span> Cronologia Ordini
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 3: Profilo Utente -->
     <div class="content-box">
       <div class="box-header">
         <h3>👤 Profilo Utente</h3>
@@ -31,68 +57,84 @@
         </div>
       </div>
     </div>
-
-    <!-- Card 2: Statistiche -->
-    <div class="content-box">
-      <div class="box-header">
-        <h3>📊 Statistiche</h3>
-      </div>
-      <div class="box-body">
-        <div class="stat-item">
-          <span class="stat-label">Accessi:</span>
-          <span class="stat-value">1</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-label">Ultimo accesso:</span>
-          <span class="stat-value">Oggi</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 3: Azioni Rapide -->
-    <div class="content-box">
-      <div class="box-header">
-        <h3>⚙️ Azioni Rapide</h3>
-      </div>
-      <div class="box-body">
-        <button class="action-btn primary">
-          <span>✏️</span> Modifica Profilo
-        </button>
-        <button class="action-btn secondary">
-          <span>🔐</span> Cambia Password
-        </button>
-      </div>
-    </div>
   </div>
 
   <!-- Features Section -->
   <div class="features-section">
     <div class="section-header">
-      <h2>🎯 Funzionalità Disponibili</h2>
+      <h2>✨ Perché Ordinaré da Noi</h2>
     </div>
     <div class="features-grid">
       <div class="feature-card">
-        <div class="feature-icon">🔐</div>
-        <h4>Sicurezza</h4>
-        <p>Autenticazione sicura con Firebase</p>
+        <div class="feature-icon">🚚</div>
+        <h4>Consegna Veloce</h4>
+        <p>Consegna entro 30 minuti garantita</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🍽️</div>
+        <h4>Qualità Superiore</h4>
+        <p>Ingredienti freschi e genuini</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💰</div>
+        <h4>Prezzi Convenienti</h4>
+        <p>Ottimo rapporto qualità-prezzo</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">📱</div>
-        <h4>Responsive</h4>
-        <p>Funziona su tutti i dispositivi</p>
+        <h4>Facile da Usare</h4>
+        <p>Ordina con pochi clic</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <h4>Veloce</h4>
-        <p>Performance ottimizzate</p>
+        <div class="feature-icon">🔒</div>
+        <h4>Pagamento Sicuro</h4>
+        <p>Transazioni protette con SSL</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⭐</div>
+        <h4>Supporto 24/7</h4>
+        <p>Sempre disponibili per aiutarti</p>
       </div>
     </div>
   </div>
 
-  <!-- Logout Section -->
-  <div class="logout-section">
-    <button class="logout-btn">
-      <span>🚪</span> Esci dal tuo account
+  <!-- Menu Preview -->
+  <div class="menu-preview">
+    <div class="section-header">
+      <h2>🎯 I Nostri Piatti Più Popolari</h2>
+    </div>
+    <div class="menu-items">
+      <div class="menu-item">
+        <div class="menu-icon">🍕</div>
+        <h4>Margherita</h4>
+        <p>Pizza classica con pomodoro, mozzarella e basilico</p>
+        <span class="price">€8.99</span>
+      </div>
+      <div class="menu-item">
+        <div class="menu-icon">🍕</div>
+        <h4>Quattro Formaggi</h4>
+        <p>Pizza con mozzarella, gorgonzola, parmigiano e ricotta</p>
+        <span class="price">€11.99</span>
+      </div>
+      <div class="menu-item">
+        <div class="menu-icon">🥗</div>
+        <h4>Caesar Salad</h4>
+        <p>Insalata fresca con pollo, parmigiano e croutons</p>
+        <span class="price">€7.99</span>
+      </div>
+      <div class="menu-item">
+        <div class="menu-icon">🥤</div>
+        <h4>Bevande Fredde</h4>
+        <p>Selezion di bevande rinfrescanti</p>
+        <span class="price">€2.50</span>
+      </div>
+    </div>
+    <button class="btn-view-all" (click)="navigateTo('/order')">
+      Vedi tutto il Menu →
     </button>
   </div>
-</div>
+
+  <!-- Logout Section -->
+  <div class="logout-section">
+    <button class="logout-btn" (click)="logout()">
+      
