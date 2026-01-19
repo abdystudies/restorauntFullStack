@@ -54,6 +54,9 @@ export class Register {
         this.errorMessage = 'Email non valida';
       } else if (err.code === 'auth/weak-password') {
         this.errorMessage = 'Password troppo debole';
+      } else if (err.code === 'auth/configuration-not-found') {
+        // User-friendly message when Email/Password auth is not enabled in Firebase
+        this.errorMessage = 'Configurazione autenticazione non trovata. Abilita il metodo Email/Password nella console Firebase.';
       } else {
         this.errorMessage = `Errore: ${err.message || 'Errore nella registrazione. Riprova.'}`;
       }

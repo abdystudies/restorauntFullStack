@@ -3,12 +3,17 @@ import { authGuard } from './auth/auth-guard';
 import { Login } from './auth/login/login';
 import { Register } from './auth/register/register';
 import { Home } from './pages/home/home';
+import { OrderComponent } from './order/order.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
 
 export const routes: Routes = [
-    { path: 'home', component: Home,
-    canActivate: [authGuard] },
+    { path: 'home', component: Home, canActivate: [authGuard] },
+    { path: 'order', component: OrderComponent, canActivate: [authGuard] },
+    { path: 'checkout', component: CheckoutComponent, canActivate: [authGuard] },
+    { path: 'order-history', component: OrderHistoryComponent, canActivate: [authGuard] },
 
     { path: 'login', component: Login },
     { path: 'register', component: Register },
-    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: '', redirectTo: 'pages/home', pathMatch: 'full' },
 ];
