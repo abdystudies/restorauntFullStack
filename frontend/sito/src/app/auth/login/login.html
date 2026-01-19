@@ -1,47 +1,13 @@
-<div class="login-container">
-  <div class="login-header">
-    <h2>Accedi al tuo account</h2>
-    <p class="subtitle">Inserisci le tue credenziali per continuare</p>
-  </div>
+<h2>Login</h2>
 
-  <div class="login-form">
-    <div class="form-group" *ngIf="errorMessage">
-      <div class="error-message">⚠️ {{ errorMessage }}</div>
-    </div>
+<label>Email:</label>
+<input [(ngModel)]="email" type="email" />
 
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input 
-        id="email"
-        [(ngModel)]="email" 
-        type="email" 
-        placeholder="esempio@email.com"
-        class="form-input"
-        [disabled]="isLoading"
-      />
-    </div>
+<label>Password:</label>
+<input [(ngModel)]="password" type="password" />
 
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input 
-        id="password"
-        [(ngModel)]="password" 
-        type="password" 
-        placeholder="••••••••"
-        class="form-input"
-        [disabled]="isLoading"
-      />
-    </div>
+<button (click)="login()">Accedi</button>
 
-    <button (click)="login()" class="btn-login" [disabled]="isLoading">
-      <span *ngIf="!isLoading" class="btn-icon">🔓</span>
-      <span *ngIf="isLoading" class="btn-loader">⏳</span>
-      {{ isLoading ? 'Accesso in corso...' : 'Accedi' }}
-    </button>
-  </div>
+<p style="color: red" *ngIf="errorMessage">{{ errorMessage }}</p>
 
-  <div class="login-footer">
-    <p class="footer-text">Non hai un account?</p>
-    <a routerLink="/register" class="register-link">Crea un account</a>
-  </div>
-</div>
+<p>Non hai un account? <a routerLink="/register">Registrati</a></p>

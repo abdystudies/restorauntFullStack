@@ -11,6 +11,7 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
 export const appConfig: ApplicationConfig = {
 
   providers: [
+<<<<<<< HEAD
     provideRouter([]),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
@@ -19,5 +20,16 @@ export const appConfig: ApplicationConfig = {
     
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes)
+=======
+    provideBrowserGlobalErrorListeners(),
+    provideRouter(routes),
+
+    //inizializza firebase con la config in environment
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    //ci rende disponibile l'auth di firebase
+    provideAuth(() => getAuth()),
+    //ci rende disponibile firestore il db che vedremo
+    provideFirestore(() => getFirestore())
+>>>>>>> parent of 6abc72d (miglioramento grafica, aggiunta environment.example.ts)
   ]
 };

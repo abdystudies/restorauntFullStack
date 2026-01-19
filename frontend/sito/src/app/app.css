@@ -1,9 +1,0 @@
-:host {
-  display: block;
-  min-height: 100vh;
-}
-
-app-root {
-  display: flex;
-  min-height: 100vh;
-}
